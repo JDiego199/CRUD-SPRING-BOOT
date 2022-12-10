@@ -13,3 +13,13 @@ blocks:
             - checkout
             - sem-version java 17
             - mvn package
+  - name: test
+    task:
+      prologue:
+        commands:
+          - checkout
+          - sem-version java 17
+      jobs:
+        - name: Unit Test
+          commands:
+            - mvn test
