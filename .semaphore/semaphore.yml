@@ -13,9 +13,11 @@ blocks:
             - checkout
             - sem-version java 17
             - mvn package
-    dependencies: []
+    dependencies:
+      - 'Block #4'
   - name: test busqueda
-    dependencies: []
+    dependencies:
+      - Maven
     task:
       jobs:
         - name: Unit Test
@@ -27,21 +29,19 @@ blocks:
           - sem-version java 17
           - mvn package
   - name: 'Block #4'
-    dependencies:
-      - Maven
+    dependencies: []
     task:
       jobs:
         - name: bd
           commands:
             - sem-service start postgres
             - sudo apt-get install -y -qq postgresql-client
-            - createdb -U postgres -h 0.0.0.0 CuentaBanco
-            - psql -h 0.0.0.0 -U postgres -c "\l" | grep CuentaBanco
+            - createdb -U postgres -h 192.168.123.1 CuentaBanco
+            - psql -h 192.168.123.1 -U postgres -c "\l" | grep CuentaBanco
             - sem-service status postgres
   - name: modificar
     dependencies:
-      - 'Block #4'
-      - test busqueda
+      - Maven
     task:
       prologue:
         commands:
@@ -54,7 +54,6 @@ blocks:
             - mvn -Dtest=CuentaBancoApplicationTestsModificar test
   - name: Eliminar
     dependencies:
-      - 'Block #4'
       - test busqueda
     task:
       prologue:
@@ -68,7 +67,6 @@ blocks:
             - mvn -Dtest=CuentaBancoApplicationTestsEliminar test
   - name: Test Presentación
     dependencies:
-      - 'Block #4'
       - test busqueda
     task:
       prologue:
@@ -82,7 +80,6 @@ blocks:
             - mvn -Dtest=CuentaBancoApplicationTests test
   - name: Agregar
     dependencies:
-      - 'Block #4'
       - Maven
     task:
       prologue:
