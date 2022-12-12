@@ -4,6 +4,12 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu2004
+global_job_config:
+  prologue:
+    commands:
+      - checkout
+      - sem-version java 17
+      - mvn package
 blocks:
   - name: build
     task:
@@ -35,4 +41,4 @@ blocks:
       jobs:
         - name: ' presentacion'
           commands:
-            - mvn -Dtest=CuentaBancoApplicationTests test
+            - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
