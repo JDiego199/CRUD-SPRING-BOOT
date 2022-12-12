@@ -13,8 +13,7 @@ blocks:
             - checkout
             - sem-version java 17
             - mvn package
-    dependencies:
-      - 'Block #4'
+    dependencies: []
   - name: 'test presentación '
     task:
       jobs:
