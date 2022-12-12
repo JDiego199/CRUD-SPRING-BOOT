@@ -6,27 +6,60 @@ package com.Cuentas.CuentaBanco;
 
 import com.Cuentas.CuentaBanco.model.Ahorros;
 import com.Cuentas.CuentaBanco.service.AhorrosService;
-import com.Cuentas.CuentaBanco.service.AhorrosServiceImplement;
-import java.util.Arrays;
-import java.util.List;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import org.springframework.boot.test.context.SpringBootTest;
-
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
- * @author fabricio
+ * @author mota1
  */
-@SpringBootTest
 public class CuentaBancoApplicationTestsBusqueda {
-
+    
+      
+    @Autowired
+    private AhorrosService repo;
+    
     @Test
+	public void contextLoads() {
+            
+            Ahorros ahorros = new Ahorros();
+           //  ahorros.setId(1);
+            ahorros.setNumCuenta("1321352");
+            ahorros.setNombre("Diego");
+            ahorros.setCedula("132326");
+            ahorros.setSaldoInicial(123);
+            ahorros.setInteres(5);
+            
+            AhorrosService ahorrosService = mock(AhorrosService.class);
+            
+            
+            Ahorros cta = repo.findById(1);
+                
+                // cta = repo.findByNumCuenta("1321352");
+                 
+               
+        
+          //  System.out.println(cta.getNumCuenta());
+          //  assertThat()
+          //  assertNotNull(cta);
+            
+         //  when(ahorrosService.findAll()).thenReturn(Arrays.asList(ahorros));
+        //   assertEquals(repo.findById(3),true);
+            
+            
+            
+          //  assertThat()
+          //  assertNotNull(cta);
+            
+         //  when(ahorrosService.findAll()).thenReturn(Arrays.asList(ahorros));
+         //  assertEquals(repo.existsById(3),true);
+           assertThat(cta.getNumCuenta()).isEqualTo("1321352");
+            
+        }
+        
+  /*        @Test
     public void TestBusqueda() {
 
         
@@ -46,6 +79,5 @@ public class CuentaBancoApplicationTestsBusqueda {
            // when(ahorrosService.findById(1));
 
 
-    }
-
+    }*/
 }
