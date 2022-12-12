@@ -14,22 +14,8 @@ blocks:
             - sem-version java 17
             - mvn package
     dependencies: []
-  - name: 'test presentación '
-    task:
-      jobs:
-        - name: Unit Test
-          commands:
-            - mvn -Dtest=CuentaBancoApplicationTests test
-      prologue:
-        commands:
-          - checkout
-          - sem-version java 17
-          - mvn package
-    dependencies:
-      - Maven
   - name: test busqueda
-    dependencies:
-      - 'test presentación '
+    dependencies: []
     task:
       jobs:
         - name: Unit Test
@@ -41,7 +27,8 @@ blocks:
           - sem-version java 17
           - mvn package
   - name: 'Block #4'
-    dependencies: []
+    dependencies:
+      - Maven
     task:
       jobs:
         - name: bd
@@ -53,6 +40,7 @@ blocks:
             - sem-service status postgres
   - name: modificar
     dependencies:
+      - 'Block #4'
       - test busqueda
     task:
       prologue:
@@ -66,6 +54,7 @@ blocks:
             - mvn -Dtest=CuentaBancoApplicationTestsModificar test
   - name: Eliminar
     dependencies:
+      - 'Block #4'
       - test busqueda
     task:
       prologue:
@@ -77,3 +66,17 @@ blocks:
         - name: 'Job #1'
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsEliminar test
+  - name: Test Presentación
+    dependencies:
+      - 'Block #4'
+      - test busqueda
+    task:
+      prologue:
+        commands:
+          - checkout
+          - sem-version java 17
+          - mvn package
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - mvn -Dtest=CuentaBancoApplicationTests test
