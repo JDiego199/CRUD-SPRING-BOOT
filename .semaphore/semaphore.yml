@@ -14,7 +14,7 @@ blocks:
             - sem-version java 17
             - mvn package
     dependencies:
-      - 'Block #4'
+      - IniBaseDatos
   - name: test busqueda
     dependencies:
       - Maven
@@ -28,7 +28,7 @@ blocks:
           - checkout
           - sem-version java 17
           - mvn package
-  - name: 'Block #4'
+  - name: IniBaseDatos
     dependencies: []
     task:
       jobs:
@@ -41,7 +41,7 @@ blocks:
             - sem-service status postgres
   - name: modificar
     dependencies:
-      - 'Block #4'
+      - IniBaseDatos
       - test busqueda
     task:
       prologue:
@@ -55,7 +55,7 @@ blocks:
             - mvn -Dtest=CuentaBancoApplicationTestsModificar test
   - name: Eliminar
     dependencies:
-      - 'Block #4'
+      - IniBaseDatos
       - test busqueda
     task:
       prologue:
@@ -82,7 +82,7 @@ blocks:
             - mvn -Dtest=CuentaBancoApplicationTests test
   - name: Agregar
     dependencies:
-      - 'Block #4'
+      - IniBaseDatos
       - Maven
     task:
       prologue:
