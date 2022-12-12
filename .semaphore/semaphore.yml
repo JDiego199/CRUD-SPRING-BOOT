@@ -34,7 +34,7 @@ blocks:
       jobs:
         - name: Unit Test
           commands:
-            - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
+            - mvn -Dtest=CuentaBancoApplicationTestsEliminar test
       prologue:
         commands:
           - checkout
