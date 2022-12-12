@@ -41,7 +41,8 @@ blocks:
             - sem-service status postgres
   - name: modificar
     dependencies:
-      - Maven
+      - 'Block #4'
+      - test busqueda
     task:
       prologue:
         commands:
@@ -54,6 +55,7 @@ blocks:
             - mvn -Dtest=CuentaBancoApplicationTestsModificar test
   - name: Eliminar
     dependencies:
+      - 'Block #4'
       - test busqueda
     task:
       prologue:
@@ -80,7 +82,7 @@ blocks:
             - mvn -Dtest=CuentaBancoApplicationTests test
   - name: Agregar
     dependencies:
-      - Maven
+      - 'Block #4'
     task:
       prologue:
         commands:
