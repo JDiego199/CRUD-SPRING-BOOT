@@ -25,7 +25,7 @@ public class CuentaBancoApplicationTestsBusqueda {
 	public void contextLoads() {
             
             Ahorros ahorros = new Ahorros();
-           //  ahorros.setId(1);
+             ahorros.setId(1);
             ahorros.setNumCuenta("1321352");
             ahorros.setNombre("Diego");
             ahorros.setCedula("132326");
