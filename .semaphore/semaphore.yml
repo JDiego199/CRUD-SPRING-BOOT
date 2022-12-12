@@ -20,6 +20,11 @@ blocks:
         - name: Unit Test
           commands:
             - mvn -Dtest=CuentaBancoApplicationTests test
+      prologue:
+        commands:
+          - checkout
+          - sem-version java 17
+          - mvn package
     dependencies:
       - Maven
   - name: test busqueda
@@ -30,3 +35,8 @@ blocks:
         - name: Unit Test
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
+      prologue:
+        commands:
+          - checkout
+          - sem-version java 17
+          - mvn package
