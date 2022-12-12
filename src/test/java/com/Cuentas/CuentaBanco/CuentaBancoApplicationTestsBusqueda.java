@@ -32,11 +32,11 @@ public class CuentaBancoApplicationTestsBusqueda {
         
         
         Ahorros ahorros = new Ahorros();
-            ahorros.setNumCuenta("132132");
-            ahorros.setNombre("Diego");
-            ahorros.setCedula("132326");
-            ahorros.setSaldoInicial(123);
-            ahorros.setInteres(5);
+          //  ahorros.setNumCuenta("132132");
+         //   ahorros.setNombre("Diego");
+           // ahorros.setCedula("132326");
+           // ahorros.setSaldoInicial(123);
+           // ahorros.setInteres(5);
             
             AhorrosService ahorrosService = mock(AhorrosService.class);
             ahorrosService.save(ahorros);
