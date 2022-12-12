@@ -53,6 +53,7 @@ blocks:
         - name: 'Job #1'
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsModificar test
+          parallelism: 4
   - name: Eliminar
     dependencies:
       - IniBaseDatos
@@ -67,6 +68,7 @@ blocks:
         - name: 'Job #1'
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsEliminar test
+          parallelism: 4
   - name: Test Presentación
     dependencies:
       - test busqueda
@@ -80,6 +82,7 @@ blocks:
         - name: 'Job #1'
           commands:
             - mvn -Dtest=CuentaBancoApplicationTests test
+          parallelism: 4
   - name: Agregar
     dependencies:
       - IniBaseDatos
@@ -94,3 +97,4 @@ blocks:
         - name: 'Job #1'
           commands:
             - mvn -Dtest=CuentaBancoApplicationTests test
+          parallelism: 4
