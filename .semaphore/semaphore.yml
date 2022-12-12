@@ -30,7 +30,7 @@ blocks:
       - Maven
   - name: test busqueda
     dependencies:
-      - Maven
+      - 'test presentación '
     task:
       jobs:
         - name: Unit Test
