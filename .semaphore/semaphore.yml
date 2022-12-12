@@ -13,13 +13,20 @@ blocks:
             - checkout
             - sem-version java 17
             - mvn package
-  - name: test
+    dependencies: []
+  - name: 'test presentación '
     task:
-      prologue:
-        commands:
-          - checkout
-          - sem-version java 17
       jobs:
         - name: Unit Test
           commands:
-            - mvn test
+            - mvn -Dtest=CuentaBancoApplicationTests test
+    dependencies:
+      - Maven
+  - name: test busqueda
+    dependencies:
+      - Maven
+    task:
+      jobs:
+        - name: Unit Test
+          commands:
+            - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
