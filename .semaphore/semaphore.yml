@@ -41,7 +41,8 @@ blocks:
           - sem-version java 17
           - mvn package
   - name: 'Block #4'
-    dependencies: []
+    dependencies:
+      - Maven
     task:
       jobs:
         - name: bd
