@@ -24,3 +24,4 @@ blocks:
         - name: test
           commands:
             - mvn test
+          parallelism: 4
