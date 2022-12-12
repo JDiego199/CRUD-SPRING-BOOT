@@ -10,6 +10,7 @@ import com.Cuentas.CuentaBanco.service.AhorrosServiceImplement;
 import java.util.Arrays;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.mock;
@@ -27,15 +28,12 @@ public class CuentaBancoApplicationTestsBusqueda {
 
     @Test
     public void TestBusqueda() {
-        Ahorros ahorross = new Ahorros();
-        AhorrosServiceImplement ahorros = new AhorrosServiceImplement();
-        
-        ahorros.findById(1);
-        ahorross=ahorros.findById(1);
-        
+
+   
          AhorrosService ahorrosService = mock(AhorrosService.class);
-            when(ahorrosService.findAll()).thenReturn(Arrays.asList(ahorross));
-            assertNotNull(ahorrosService.findAll());
+         when(ahorrosService.findAll()).thenReturn(Arrays.asList());
+           // when(ahorrosService.findById(1));
+            assertNotNull(ahorrosService.findById(1));
 
     }
 
