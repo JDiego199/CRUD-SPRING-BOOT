@@ -51,3 +51,29 @@ blocks:
             - createdb -U postgres -h 0.0.0.0 CuentaBanco
             - psql -h 0.0.0.0 -U postgres -c "\l" | grep CuentaBanco
             - sem-service status postgres
+  - name: modificar
+    dependencies:
+      - test busqueda
+    task:
+      prologue:
+        commands:
+          - checkout
+          - sem-version java 17
+          - mvn package
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - mvn -Dtest=CuentaBancoApplicationTestsModificar test
+  - name: Eliminar
+    dependencies:
+      - test busqueda
+    task:
+      prologue:
+        commands:
+          - checkout
+          - sem-version java 17
+          - mvn package
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - mvn -Dtest=CuentaBancoApplicationTestsEliminar test
