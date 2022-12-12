@@ -34,15 +34,11 @@ blocks:
       jobs:
         - name: bd
           commands:
-            - sem-service start postgres
-            - psql -U postgres -h localhost -c "CREATE USER diego WITH PASSWORD 'diego';"
-      prologue:
-        commands:
-          - 'sem-service start postgres '
-          - sudo apt-get install -y -qq postgresql-client
-          - createdb -U postgres -h localhost CuentaBanco
-          - psql -h localhost -U postgres -c "\l" | grep CuentaBanco
-          - sem-service status postgres
+            - 'sem-service start postgres '
+            - sudo apt-get install -y -qq postgresql-client
+            - createdb -U postgres -h localhost CuentaBanco
+            - psql -h localhost -U postgres -c "\l" | grep CuentaBanco
+            - sem-service status postgres
   - name: modificar
     dependencies:
       - Maven
