@@ -4,6 +4,7 @@ package com.Cuentas.CuentaBanco;
 import com.Cuentas.CuentaBanco.model.Ahorros;
 import com.Cuentas.CuentaBanco.service.AhorrosService;
 import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
@@ -25,9 +26,11 @@ class CuentaBancoApplicationTests {
             ahorros.setInteres(5);
             
             AhorrosService ahorrosService = mock(AhorrosService.class);
+            ahorrosService.findById(1);
             
             when(ahorrosService.findAll()).thenReturn(Arrays.asList(ahorros));
             assertNotNull(ahorrosService.findAll());
+          
         }
 
         
