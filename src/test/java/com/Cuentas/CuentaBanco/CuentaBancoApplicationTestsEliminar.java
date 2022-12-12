@@ -5,10 +5,14 @@
 
 package com.Cuentas.CuentaBanco;
 import com.Cuentas.CuentaBanco.model.Ahorros;
+import com.Cuentas.CuentaBanco.service.AhorrosService;
 import com.Cuentas.CuentaBanco.service.AhorrosServiceImplement;
+import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 /**
  *
  * @author fabricio
@@ -16,14 +20,20 @@ import org.junit.jupiter.api.Test;
 public class CuentaBancoApplicationTestsEliminar {
     
   @Test
-    public void TestModificacion() {
+    public void TestEliminacion() {
         AhorrosServiceImplement ahorros = new AhorrosServiceImplement();
         
      
-        ahorros.findById(1);
-        ahorros.delete(1);
- 
-        assertNull(ahorros.findById(1));
+
+        
+          AhorrosService ahorrosService = mock(AhorrosService.class);
+          
+          ahorrosService.delete(1);
+          
+          
+         when(ahorrosService.findAll()).thenReturn(Arrays.asList());
+           // when(ahorrosService.findById(1));
+            assertNull(ahorrosService.findById(1));
         
         
         
