@@ -36,8 +36,8 @@ blocks:
           commands:
             - sem-service start postgres
             - sudo apt-get install -y -qq postgresql-client
-            - createdb -U postgres -h 192.168.123.1 CuentaBanco
-            - psql -h 192.168.123.1 -U postgres -c "\l" | grep CuentaBanco
+            - createdb -U postgres -h 127.0.0.1 CuentaBanco
+            - psql -h 127.0.0.1 -U postgres -c "\l" | grep CuentaBanco
             - sem-service status postgres
   - name: modificar
     dependencies:
