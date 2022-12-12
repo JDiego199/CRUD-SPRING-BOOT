@@ -80,3 +80,17 @@ blocks:
         - name: 'Job #1'
           commands:
             - mvn -Dtest=CuentaBancoApplicationTests test
+  - name: Agregar
+    dependencies:
+      - 'Block #4'
+      - Maven
+    task:
+      prologue:
+        commands:
+          - checkout
+          - sem-version java 17
+          - mvn package
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - mvn -Dtest=CuentaBancoApplicationTestsAgregar test
