@@ -83,7 +83,7 @@ blocks:
           commands:
             - mvn -Dtest=CuentaBancoApplicationTests test
           parallelism: 4
-  - name: Agregar
+  - name: Ingreso
     dependencies:
       - IniBaseDatos
       - Maven
