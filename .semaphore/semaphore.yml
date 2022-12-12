@@ -35,4 +35,4 @@ blocks:
       jobs:
         - name: ' presentacion'
           commands:
-            - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
+            - mvn -Dtest=CuentaBancoApplicationTests test
