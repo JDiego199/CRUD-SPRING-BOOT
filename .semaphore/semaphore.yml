@@ -27,7 +27,7 @@ blocks:
           - mvn package
     dependencies:
       - Maven
-  - name: test busqueda
+  - name: test Eliminar
     dependencies:
       - Maven
     task:
@@ -40,3 +40,16 @@ blocks:
           - checkout
           - sem-version java 17
           - mvn package
+  - name: Test Busqueda
+    dependencies:
+      - Maven
+    task:
+      prologue:
+        commands:
+          - checkout
+          - sem-version java 17
+          - mvn package
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
