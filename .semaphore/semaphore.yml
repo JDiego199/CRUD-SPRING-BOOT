@@ -83,6 +83,7 @@ blocks:
   - name: Agregar
     dependencies:
       - 'Block #4'
+      - Maven
     task:
       prologue:
         commands:
