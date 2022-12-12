@@ -92,4 +92,4 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - mvn -Dtest=CuentaBancoApplicationTestsAgregar test
+            - mvn -Dtest=CuentaBancoApplicationTests test
