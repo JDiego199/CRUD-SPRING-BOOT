@@ -42,7 +42,7 @@ public class CuentaBancoApplicationTestsBusqueda {
             ahorrosService.save(ahorros);
 
          when(ahorrosService.findById(1));
-
+                     assertNotNull(ahorrosService.findById(1));
            // when(ahorrosService.findById(1));
 
 
