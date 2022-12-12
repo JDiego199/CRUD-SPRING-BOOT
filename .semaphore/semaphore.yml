@@ -24,3 +24,9 @@ blocks:
         - name: test
           commands:
             - mvn test
+  - name: 'Block #3'
+    task:
+      jobs:
+        - name: Driver Modificar
+          commands:
+            - mvn test
