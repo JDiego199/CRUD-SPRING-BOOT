@@ -27,31 +27,10 @@ class CuentaBancoApplicationTestsMenu {
 
     @Test
     public void contextLoads() {
-        AhorrosService ahorrosService = new AhorrosService() {
-            @Contract(pure = true)
-            @Override
-            public @Nullable List<Ahorros> findAll() {
-                return null;
-            }
 
-            @Override
-            public Ahorros save(Ahorros ahorros) {
-                return null;
-            }
 
-            @Override
-            public Ahorros findById(Integer id) {
-                return null;
-            }
-
-            @Override
-            public void delete(Integer id) {
-
-            }
-        };
-
+        ahorrosController ahorrosController = new ahorrosController();
+        ahorrosController.menu(1);
     }
-
-
 
 }
