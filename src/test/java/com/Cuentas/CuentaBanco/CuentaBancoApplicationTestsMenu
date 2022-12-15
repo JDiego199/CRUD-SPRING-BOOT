@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.*;
 
 import org.jetbrains.annotations.Contract;
@@ -26,11 +27,23 @@ class CuentaBancoApplicationTestsMenu {
     private AhorrosService repo;
 
     @Test
-    public void contextLoads() {
+    public void TestMenu() {
 
 
         Ahorros ahorros = new Ahorros();
-        ahorros.menu(1);
+        ahorros.setNumCuenta("132132");
+        ahorros.setNombre("Diego");
+        ahorros.setCedula("132326");
+        ahorros.setSaldoInicial(123);
+        ahorros.setInteres(5);
+
+        AhorrosService ahorrosService = mock(AhorrosService.class);
+
+        when(ahorrosService.findAll()).thenReturn(Arrays.asList(ahorros));
+        assertNull(ahorrosService.findById(1));
+
+
+
     }
 
 }
