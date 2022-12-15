@@ -7,7 +7,6 @@ agent:
 blocks:
   - name: test busqueda
     dependencies:
-      - IniBaseDatos
       - Menu
     task:
       jobs:
@@ -19,20 +18,8 @@ blocks:
           - checkout
           - sem-version java 17
           - mvn package
-  - name: IniBaseDatos
-    dependencies: []
-    task:
-      jobs:
-        - name: bd
-          commands:
-            - 'sem-service start postgres '
-            - sudo apt-get install -y -qq postgresql-client
-            - createdb -U postgres -h localhost CuentaBanco
-            - psql -h localhost -U postgres -c "\l" | grep CuentaBanco
-            - sem-service status postgres
   - name: modificar
     dependencies:
-      - IniBaseDatos
       - test busqueda
     task:
       prologue:
@@ -47,7 +34,6 @@ blocks:
           parallelism: 4
   - name: Eliminar
     dependencies:
-      - IniBaseDatos
       - test busqueda
     task:
       prologue:
@@ -61,8 +47,7 @@ blocks:
             - mvn -Dtest=CuentaBancoApplicationTestsEliminar test
           parallelism: 4
   - name: Ingreso
-    dependencies:
-      - IniBaseDatos
+    dependencies: []
     task:
       prologue:
         commands:
@@ -76,7 +61,6 @@ blocks:
   - name: Menu
     dependencies:
       - Ingreso
-      - IniBaseDatos
     task:
       prologue:
         commands:
