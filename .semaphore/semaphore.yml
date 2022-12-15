@@ -96,3 +96,6 @@ blocks:
         - name: eliminar
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
+        - name: MENU_INI
+          commands:
+            - mvn -Dtest=CuentaBancoApplicationTestsMenu test
