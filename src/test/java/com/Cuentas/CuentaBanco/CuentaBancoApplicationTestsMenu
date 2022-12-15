@@ -29,8 +29,8 @@ class CuentaBancoApplicationTestsMenu {
     public void contextLoads() {
 
 
-        ahorrosController ahorrosController = new ahorrosController();
-        ahorrosController.menu(1);
+        Ahorros ahorros = new Ahorros();
+        ahorros.menu(1);
     }
 
 }
