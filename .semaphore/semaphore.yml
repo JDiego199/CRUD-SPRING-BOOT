@@ -87,3 +87,4 @@ blocks:
         - name: 'Job #1'
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsMenu test
+            - mvn -Dmaven.test.skip=true package
