@@ -5,7 +5,7 @@ agent:
     type: e1-standard-2
     os_image: ubuntu2004
 blocks:
-  - name: test busqueda
+  - name: Test búsqueda
     dependencies:
       - Menu
     task:
@@ -18,9 +18,9 @@ blocks:
           - checkout
           - sem-version java 17
           - mvn package
-  - name: modificar
+  - name: Modificar
     dependencies:
-      - test busqueda
+      - Test búsqueda
     task:
       prologue:
         commands:
@@ -34,7 +34,7 @@ blocks:
           parallelism: 4
   - name: Eliminar
     dependencies:
-      - test busqueda
+      - Test búsqueda
     task:
       prologue:
         commands:
@@ -47,7 +47,8 @@ blocks:
             - mvn -Dtest=CuentaBancoApplicationTestsEliminar test
           parallelism: 4
   - name: Agregar
-    dependencies: []
+    dependencies:
+      - Menu
     task:
       prologue:
         commands:
@@ -59,8 +60,7 @@ blocks:
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsAgregar test
   - name: Menu
-    dependencies:
-      - Agregar
+    dependencies: []
     task:
       prologue:
         commands:
@@ -68,15 +68,15 @@ blocks:
           - sem-version java 17
           - mvn package
       jobs:
-        - name: ingresar
+        - name: Ingresar
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsMenu test
-        - name: buscar
+        - name: Buscar
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsMenu test
-        - name: modificar
+        - name: Modificar
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsMenu test
-        - name: MENUi
+        - name: Eliminar
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsMenu test
