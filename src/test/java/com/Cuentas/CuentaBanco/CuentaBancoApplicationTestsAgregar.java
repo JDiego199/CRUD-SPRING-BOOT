@@ -30,7 +30,7 @@ public class CuentaBancoApplicationTestsAgregar {
             
             Ahorros ahorros = new Ahorros();
             ahorros.setNumCuenta("132132");
-            ahorros.setNombre("Diego");
+            ahorros.setNombre("Druv");
             ahorros.setCedula("132326");
             ahorros.setSaldoInicial(123);
             ahorros.setInteres(5);
