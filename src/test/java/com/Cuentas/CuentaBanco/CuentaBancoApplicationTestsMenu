@@ -1,0 +1,57 @@
+package com.Cuentas.CuentaBanco;
+
+import com.Cuentas.CuentaBanco.controller.ahorrosController;
+import com.Cuentas.CuentaBanco.model.Ahorros;
+import com.Cuentas.CuentaBanco.service.AhorrosService;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.*;
+
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.Nullable;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+/**
+ *
+ * @author craxz
+ */
+@SpringBootTest
+class CuentaBancoApplicationTestsMenu {
+
+    @Autowired
+    private AhorrosService repo;
+
+    @Test
+    public void contextLoads() {
+        AhorrosService ahorrosService = new AhorrosService() {
+            @Contract(pure = true)
+            @Override
+            public @Nullable List<Ahorros> findAll() {
+                return null;
+            }
+
+            @Override
+            public Ahorros save(Ahorros ahorros) {
+                return null;
+            }
+
+            @Override
+            public Ahorros findById(Integer id) {
+                return null;
+            }
+
+            @Override
+            public void delete(Integer id) {
+
+            }
+        };
+
+    }
+
+
+
+}
