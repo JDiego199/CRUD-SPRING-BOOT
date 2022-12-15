@@ -84,6 +84,15 @@ blocks:
           - sem-version java 17
           - mvn package
       jobs:
-        - name: 'Job #1'
+        - name: ingresar
           commands:
-            - mvn -Dtest=CuentaBancoApplicationTestsMenu test
+            - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
+        - name: buscar
+          commands:
+            - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
+        - name: modificar
+          commands:
+            - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
+        - name: eliminar
+          commands:
+            - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
