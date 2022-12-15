@@ -46,7 +46,7 @@ blocks:
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsEliminar test
           parallelism: 4
-  - name: Ingreso
+  - name: Agregar
     dependencies: []
     task:
       prologue:
@@ -57,10 +57,10 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
+            - mvn -Dtest=CuentaBancoApplicationTestsAgregar test
   - name: Menu
     dependencies:
-      - Ingreso
+      - Agregar
     task:
       prologue:
         commands:
