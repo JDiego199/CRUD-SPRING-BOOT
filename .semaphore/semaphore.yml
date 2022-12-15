@@ -93,6 +93,6 @@ blocks:
         - name: modificar
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsMenu test
-        - name: eliminar
+        - name: MENUi
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsMenu test
