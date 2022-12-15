@@ -76,7 +76,6 @@ blocks:
   - name: Menu
     dependencies:
       - Ingreso
-      - IniBaseDatos
     task:
       prologue:
         commands:
@@ -86,4 +85,4 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - mvn -Dtest=CuentaBancoApplicationTestsMenu test
+            - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
