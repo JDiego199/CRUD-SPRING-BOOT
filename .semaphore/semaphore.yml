@@ -86,16 +86,13 @@ blocks:
       jobs:
         - name: ingresar
           commands:
-            - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
+            - mvn -Dtest=CuentaBancoApplicationTestsMenu test
         - name: buscar
           commands:
-            - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
+            - mvn -Dtest=CuentaBancoApplicationTestsMenu test
         - name: modificar
           commands:
-            - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
+            - mvn -Dtest=CuentaBancoApplicationTestsMenu test
         - name: eliminar
-          commands:
-            - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
-        - name: MENU_INI
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsMenu test
