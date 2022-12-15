@@ -85,4 +85,4 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
+            - mvn -Dtest=CuentaBancoApplicationTestsMenu test
