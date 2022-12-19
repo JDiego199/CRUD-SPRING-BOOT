@@ -7,11 +7,14 @@ package com.Cuentas.CuentaBanco.DAO;
 import com.Cuentas.CuentaBanco.model.Ahorros;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.Optional;
+
 /**
  *
  * @author mota1
  */
 public interface AhorrosDAO extends CrudRepository<Ahorros, Integer> {
-    
-    
+
+
+
 }
