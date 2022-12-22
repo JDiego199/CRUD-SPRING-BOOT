@@ -15,8 +15,8 @@ public class Login {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name ="usuario", nullable = false)
-    private String usuario;
+    @Column(name ="Nombre", nullable = false)
+    private String nombre;
     @Column(name ="pass", nullable = false)
     private String pass;
 
