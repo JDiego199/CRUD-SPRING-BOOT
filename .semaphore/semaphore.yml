@@ -5,8 +5,9 @@ agent:
     type: e1-standard-2
     os_image: ubuntu2004
 blocks:
-  - name: Test búsqueda
+  - name: test busqueda
     dependencies:
+      - IniBaseDatos
       - Menu
     task:
       jobs:
@@ -18,9 +19,21 @@ blocks:
           - checkout
           - sem-version java 17
           - mvn package
-  - name: Modificar
+  - name: IniBaseDatos
+    dependencies: []
+    task:
+      jobs:
+        - name: bd
+          commands:
+            - 'sem-service start postgres '
+            - sudo apt-get install -y -qq postgresql-client
+            - createdb -U postgres -h localhost CuentaBanco
+            - psql -h localhost -U postgres -c "\l" | grep CuentaBanco
+            - sem-service status postgres
+  - name: modificar
     dependencies:
-      - Test búsqueda
+      - IniBaseDatos
+      - test busqueda
     task:
       prologue:
         commands:
@@ -34,7 +47,8 @@ blocks:
           parallelism: 4
   - name: Eliminar
     dependencies:
-      - Test búsqueda
+      - IniBaseDatos
+      - test busqueda
     task:
       prologue:
         commands:
@@ -46,9 +60,9 @@ blocks:
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsEliminar test
           parallelism: 4
-  - name: Agregar
+  - name: Login
     dependencies:
-      - Menu
+      - IniBaseDatos
     task:
       prologue:
         commands:
@@ -58,9 +72,11 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - mvn -Dtest=CuentaBancoApplicationTestsEliminar test
+            - mvn -Dtest=CuentaBancoApplicationTestsBusqueda test
   - name: Menu
-    dependencies: []
+    dependencies:
+      - IniBaseDatos
+      - Login
     task:
       prologue:
         commands:
@@ -68,15 +84,12 @@ blocks:
           - sem-version java 17
           - mvn package
       jobs:
-        - name: Ingresar
+        - name: ingresar
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsMenu test
-        - name: Buscar
+        - name: buscar
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsMenu test
-        - name: Modificar
-          commands:
-            - mvn -Dtest=CuentaBancoApplicationTestsMenu test
-        - name: Eliminar
+        - name: modificar
           commands:
             - mvn -Dtest=CuentaBancoApplicationTestsMenu test
