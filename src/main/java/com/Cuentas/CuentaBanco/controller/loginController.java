@@ -45,10 +45,17 @@ public class loginController {
         }
         return ResponseEntity.ok(login);
     }	
+<<<<<<< HEAD
     @GetMapping("login/vali/{nombre}+{passw}")
     public boolean getBynombreVali(@PathVariable String nombre, @PathVariable String passw) {
         String nombres = "";
        // passw = "123"; //parametro que mandas del frontend
+=======
+    @GetMapping("login/vali/{nombre}")
+    public boolean getBynombreVali(@PathVariable String nombre, String passw) {
+        String nombres = "";
+        passw = "123"; //parametro que mandas del frontend
+>>>>>>> 87073ee83dcbae09ac9e28a83a5aa9fe42ce79f8
         String pass = "";
         List<Login> login = this.loginService.getBynombre(nombre);
         pass = login.get(0).getPass();
